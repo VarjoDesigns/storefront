@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Liverylist</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+	<h1>Liverylist</h1>
+	<table>
+		<tbody>
+			<tr th:each = "livery : ${Liveries}">
+			<td th:text="${livery.name}"></td>
+			<td th:text="${livery.description}"></td>
+			<td th:text="${livery.sharecode}"></td>
+			<td th:text="${livery.game.name}"></td>
+			<td><a th:href="@{/delete/{id}(id=${livery.id})}">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/addlivery">Add new livery</a>
+</body>
+</html>

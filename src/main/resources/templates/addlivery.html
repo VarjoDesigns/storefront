@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add livery</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+	<div class="container">
+	<h1>Add liveries</h1>
+	<div>
+	<form action="#" th:action="@{saveLivery}" method="post" th:object="${newLivery}">
+	
+	<label for ="name">Name</label>
+	<input id="name" type="text" th:field="*{name}"/>
+	
+	<label for ="name">Description</label>
+	<input type="text" id="description" th:field="*{description}"/>
+	
+	<label for ="name">Share code</label>
+	<input type="text" id="sharecode" th:field="*{sharecode}"/>
+	
+	<label for ="games">Game</label>
+	<select id="games" th:field="*{game}">
+		<option th:each="game: ${games}" th:value="${game.id}"  th:text="${game.name}"></option>
+	</select>
+	
+	<input type="submit" value="Save"></input>
+	</form>
+	</div>
+</div>
+</body>
+</html>
