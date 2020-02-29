@@ -17,7 +17,7 @@ public class Game {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String name;
-	// abbreviation
+	private String abbreviation;
 	// publisher
 	// year
 	// name
@@ -29,29 +29,42 @@ public class Game {
 		super();
 	}
 	
-	public Game(String name) {
+	public Game(String name, String abbreviation) {
 		super();
 		this.name = name;
+		this.abbreviation = abbreviation;
 	}
+	
+	// Getterit
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getAbbreviation() {
+		return abbreviation;
 	}
 
 	public List<Livery> getLiveries() {
 		return liveries;
+	}
+
+	// Setterit
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAbbreviation(String abbreviation) {
+		this.abbreviation = abbreviation;
 	}
 
 	public void setLiveries(List<Livery> liveries) {
@@ -60,10 +73,7 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", name=" + name + ", liveries=" + liveries + "]";
+		return "Game [id=" + id + ", name=" + name + ", abbreviation=" + abbreviation + ", liveries=" + liveries + "]";
 	}
 
-	
-	
 }
-

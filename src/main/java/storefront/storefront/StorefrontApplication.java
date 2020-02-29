@@ -22,8 +22,8 @@ public class StorefrontApplication {
 	return (args) -> {
 		
 		// Games testdata
-		grepository.save(new Game("Forza Motorsport 7"));
-		grepository.save(new Game("Forza Horizon 4"));
+		grepository.save(new Game("Forza Motorsport 7", "FM7"));
+		grepository.save(new Game("Forza Horizon 4", "FH4"));
 		
 		// Livery testdata
 		repository.save(new Livery("Martini","This Porsche 918 Spyder has been wrapped in Martini livery","010200345", grepository.findByName("Forza Motorsport 7").get(0)));
