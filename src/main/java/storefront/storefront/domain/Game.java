@@ -33,21 +33,37 @@ public class Game {
 		super();
 		this.name = name;
 	}
-	
-	// Getterit
-	public Long getId() {return id;}
-	public String getName() {return name;}
-	public List<Livery> getLiveries() {return liveries;}
-	
-	// Setterit
-	public void setId(Long id) {this.id = id;}
-	public void setName(String name) {this.name = name;}
-	public void setLiveries(List<Livery> liveries) {this.liveries = liveries;}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Livery> getLiveries() {
+		return liveries;
+	}
+
+	public void setLiveries(List<Livery> liveries) {
+		this.liveries = liveries;
+	}
 
 	@Override
 	public String toString() {
 		return "Game [id=" + id + ", name=" + name + ", liveries=" + liveries + "]";
 	}
-}
 
+	
+	
+}
 
