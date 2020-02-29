@@ -48,6 +48,14 @@ public class LiveryController {
 		}
 	
 	// Change livery
+		
+		@RequestMapping(value = "/editlivery/{id}", method = RequestMethod.GET)
+		public String editBookId(@PathVariable("id") Long liveryid, Model model) {
+			System.out.print("Edit metodi");
+			model.addAttribute("editlivery", repository.findById(liveryid).get());
+			model.addAttribute("games", grepository.findAll());
+			return "editlivery";
+		}
 	
 	// Delete livery
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

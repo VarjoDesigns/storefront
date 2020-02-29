@@ -1,0 +1,31 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit livery information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+		<form th:object="${editlivery}" th:action="@{/saveLivery}" action="#" method="post">
+			<input type="hidden" id="id" th:field="*{id}"/>
+			<label for="name">Name </label> 
+			<input type="text" id="title" th:field="${editLivery.title}" />
+			
+			<label for ="name">Description</label>
+			<input type="text" id="description" th:field="${editlivery.description}"/>
+			
+			<label for ="name">Share code</label>
+			<input type="text" id="sharecode" th:field="${editlivery.sharecode}"/>
+					
+			<label for="games">Peli</label>
+			 <select id="games" th:field="*{game}">
+       			<option th:each="game: ${games}" 
+       			th:value="${game.id}" th:text="${game.name}"></option>
+    		</select>
+			<input type="submit" value="Update"></input>
+		</form>
+
+	</div>
+</body>
+</html>
