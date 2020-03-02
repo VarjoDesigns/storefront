@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,13 @@ public class LiveryController {
 		model.addAttribute("Liveries", repository.findAll());
 		return "liverylist";
 	}
+	
+	// Login page
+	
+	@GetMapping("/login")
+	public String login(Model model) {
+		return "login";
+	}
 
 	
 // Livery
@@ -50,9 +58,9 @@ public class LiveryController {
 	// Change livery
 		
 		@RequestMapping(value = "/editlivery/{id}", method = RequestMethod.GET)
-		public String editBookId(@PathVariable("id") Long liveryid, Model model) {
-			System.out.print("Edit metodi");
-			model.addAttribute("editlivery", repository.findById(liveryid).get());
+		public String editLivery(@PathVariable("id") Long id, Model model) {
+			System.out.println("Edit metodi" + id);
+			model.addAttribute("editLivery", repository.findById(id).get());
 			model.addAttribute("games", grepository.findAll());
 			return "editlivery";
 		}
@@ -60,6 +68,7 @@ public class LiveryController {
 	// Delete livery
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteLivery(@PathVariable("id") Long liveryId, Model model) { // Path variable poimii requestista "path variable" -tiedon (ID)
+		System.out.println("Poisto metodi" + liveryId);
 		repository.deleteById(liveryId);
 		return "redirect:../liverylist";
 	}

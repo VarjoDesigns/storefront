@@ -7,16 +7,17 @@
 </head>
 <body>
 	<div>
-		<form th:object="${editlivery}" th:action="@{/saveLivery}" action="#" method="post">
+		<form th:object="${editLivery}" th:action="@{/saveLivery}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}"/>
+			
 			<label for="name">Name </label> 
-			<input type="text" id="title" th:field="${editLivery.title}" />
+			<input type="text" id="name" th:field="${editLivery.name}" />
 			
-			<label for ="name">Description</label>
-			<input type="text" id="description" th:field="${editlivery.description}"/>
+			<label for ="description">Description</label>
+			<input type="text" id="description" th:field="${editLivery.description}"/>
 			
-			<label for ="name">Share code</label>
-			<input type="text" id="sharecode" th:field="${editlivery.sharecode}"/>
+			<label for ="sharecode">Share code</label>
+			<input type="text" id="sharecode" th:field="${editLivery.sharecode}"/>
 					
 			<label for="games">Peli</label>
 			 <select id="games" th:field="*{game}">
