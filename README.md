@@ -16,3 +16,4 @@ To do (ADD):
 Add Bootstrap CSS for better front end (Low priority)
 Add a new user sign up to the login page
 Add data validation
+Switch to MariaDB (High priority, but easier to test previous steps if on H2)
