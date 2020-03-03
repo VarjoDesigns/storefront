@@ -1,15 +1,15 @@
-Welcome to Storefront application! 
+Welcome to Storefront application!  <br>
 
-This application lists liveries (And potentially Vinyl groups) created for Forza Motorsport & Forza Horizon games.
+<p>This application lists liveries (And potentially Vinyl groups) created for Forza Motorsport & Forza Horizon games. </p>
 
-Features:
-CRUD: Create, read, update or delete Liveries, Games etc.
-REST: Features REST (Documentation not finished)
+Features: <br>
+CRUD: Create, read, update or delete Liveries, Games etc. <br>
+REST: Features REST (Documentation not finished) <br>
 
-Notes:
+Notes: <br>
 
 
-To do (FIX):
+To do (FIX): <br>
 No backlog! :D
 
 To do (ADD): <br>
