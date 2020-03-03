@@ -6,6 +6,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -21,6 +24,7 @@ public class Game {
 	// publisher
 	// year
 	// name
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
 	private List<Livery> liveries;
 	

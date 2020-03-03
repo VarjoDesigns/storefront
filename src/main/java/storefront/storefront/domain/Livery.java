@@ -95,9 +95,8 @@ public class Livery {
 	@Override
 	public String toString() {
 		return "Livery [id=" + id + ", name=" + name + ", description=" + description + ", sharecode=" + sharecode
-				+ ", game=" + game + "]";
+				+ "]";
 	}
-	
 }
 
 
