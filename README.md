@@ -1,4 +1,4 @@
-Welcome to Storefront application!  <br>
+<h2>Welcome to Storefront application!  </h2><br>
 
 <p>This application lists liveries (And potentially Vinyl groups) created for Forza Motorsport & Forza Horizon games. </p>
 
