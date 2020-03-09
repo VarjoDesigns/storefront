@@ -24,6 +24,8 @@
 		<option th:each="game: ${games}" th:value="${game.id}"  th:text="${game.name}"></option>
 	</select>
 	
+	<p> Kysymys: Miten saadaan alla oleva kenttä automerkillä suodatuksen taakse? </p>
+	
 	<label for ="carmodels">Model</label>
 	<select id="carmodels" th:field="*{carmodel}">
 		<option th:each="carmodel: ${carmodels}" th:value="${carmodel.id}"  th:text="${carmodel.name}"></option>
