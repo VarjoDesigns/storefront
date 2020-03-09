@@ -10,6 +10,12 @@ import storefront.storefront.domain.Game;
 import storefront.storefront.domain.GameRepository;
 import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.LiveryRepository;
+import storefront.storefront.domain.cars.Carmodel;
+import storefront.storefront.domain.cars.CarmodelRepository;
+import storefront.storefront.domain.cars.Country;
+import storefront.storefront.domain.cars.CountryRepository;
+import storefront.storefront.domain.cars.Manufacturer;
+import storefront.storefront.domain.cars.ManufacturerRepository;
 import storefront.storefront.domain.users.User;
 import storefront.storefront.domain.users.UserRepository;
 
@@ -22,8 +28,29 @@ public class StorefrontApplication {
 	}
 	
 	@Bean // Command line runner for H2 database testing, remove before MariaDB application!
-	public CommandLineRunner demo(LiveryRepository repository, GameRepository grepository, UserRepository urepository) {
+	public CommandLineRunner demo(
+			LiveryRepository repository, 
+			GameRepository grepository, 
+			UserRepository urepository, 
+			CountryRepository crepository,
+			ManufacturerRepository mrepository,
+			CarmodelRepository cmrepository) {
+		
 	return (args) -> {
+		
+		// Countries testdata
+		crepository.save(new Country("Japan"));
+		crepository.save(new Country("Germany"));
+		crepository.save(new Country("France"));
+		crepository.save(new Country("USA"));
+		
+		
+		// Manufacturer testdata
+		mrepository.save(new Manufacturer("Porsche", crepository.findByName("Germany").get(0)));
+		mrepository.save(new Manufacturer("Bugatti", crepository.findByName("France").get(0)));
+		
+		// Carmodel testdata
+		cmrepository.save(new Carmodel("Rauh Welt Begriff 993", mrepository.findByName("Porsche").get(0)));
 
 				
 		// Games testdata
