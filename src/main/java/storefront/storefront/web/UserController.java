@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -58,4 +59,32 @@ public class UserController {
 		}
 		return "redirect:/login";
 	}
+
+	// Users
+	
+		// List users
+		@RequestMapping("/userlist")
+		public String userlist(Model model) {
+			model.addAttribute("Users", userRepository.findAll());
+			return "userlist";
+		}
+		
+		// Add user on user controllerin puolella
+		
+		// Change user
+		@RequestMapping(value = "/edituser/{id}", method = RequestMethod.GET)
+		public String editUser(@PathVariable("id") Long id, Model model) {
+			System.out.println("Edit user" + id);
+			model.addAttribute("editUser", userRepository.findById(id).get());
+			return "edituser";
+		}
+		
+		// Delete user
+		@RequestMapping(value = "/deleteuser/{id}", method = RequestMethod.GET)
+		public String deleteUser(@PathVariable("id") Long userid, Model model) { // Path variable poimii requestista "path variable" -tiedon (ID)
+			System.out.println("Deleting user: " + userid);
+			userRepository.deleteById(userid);
+			return "redirect:../userlist";
+		}
+
 }

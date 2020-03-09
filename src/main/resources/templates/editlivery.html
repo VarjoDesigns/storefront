@@ -11,25 +11,31 @@
 			<input type="hidden" id="id" th:field="*{id}"/>
 			
 			<label for="name">Name </label> 
-			<input type="text" id="name" th:field="${editLivery.name}" />
+			<input type="text" id="name" th:field="${editLivery.name}" /><br>
 			
 			<label for ="description">Description</label>
-			<input type="text" id="description" th:field="${editLivery.description}"/>
+			<input type="text" id="description" th:field="${editLivery.description}"/><br>
 			
 			<label for ="sharecode">Share code</label>
-			<input type="text" id="sharecode" th:field="${editLivery.sharecode}"/>
+			<input type="text" id="sharecode" th:field="${editLivery.sharecode}"/><br>
 					
 			<label for="games">Game</label>
 			 <select id="games" th:field="*{game}">
        			<option th:each="game: ${games}" 
        			th:value="${game.id}" th:text="${game.name}"></option>
-    		</select>
+    		</select><br>
     		
     		<label for="carmodels">Car model</label>
 			 <select id="carmodels" th:field="*{carmodel}">
        			<option th:each="carmodel: ${carmodels}" 
        			th:value="${carmodel.id}" th:text="${carmodel.name}"></option>
-    		</select>
+    		</select><br>
+    		
+    		<label for="users">Creator</label>
+			 <select id="users" th:field="*{user}">
+       			<option th:each="user: ${users}" 
+       			th:value="${user.id}" th:text="${user.username}"></option>
+    		</select><br>
     		
 			<input type="submit" value="Update"></input>
 		</form>

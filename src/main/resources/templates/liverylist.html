@@ -11,20 +11,41 @@
 	<h1>Liverylist</h1>
 	<table>
 		<tbody>
+			<th th:text = "Livery"></th>
+			<th th:text = "Description"></th>
+			<th th:text = "Sharecode"></th>
+			<th th:text = "Manufacturer"></th>
+			<th th:text = "Model"></th>
+			<th th:text = "Country"></th>
+			<th th:text = "Game"></th>
+			<th th:text = "Creator"></th>
+			<th th:text = "Delete"></th>
+			<th th:text = "Edit"></th>
+			
 			<tr th:each = "livery : ${Liveries}">
 			<td th:text="${livery.name}"></td>
 			<td th:text="${livery.description}"></td>
 			<td th:text="${livery.sharecode}"></td>
+			<td th:text="${livery.carmodel.manufacturer.name}"></td>
+			<td th:text="${livery.carmodel.name}"></td>
+			<td th:text="${livery.carmodel.manufacturer.country.name}"></td>
+			<td th:text="${livery.game.name}"></td>
+			<td th:text="${livery.user.username}"></td>
 			<td><a th:href="@{/delete/{id}(id=${livery.id})}">Delete</a></td>
 			<td><a th:href="@{/editlivery/{id}(id=${livery.id})}">Edit</a></td>
 			</tr>
 		</tbody>
 	</table>
+	<p>
 	<a href="/addlivery">Add new livery</a>
+	</p>
+	
 	<footer>
 	<a href="/index">Main menu</a>
 	<a href="/liverylist">Liveries listed</a>
 	<a href="/registerNewUser">Register new user</a>
+	<br>
+	<br>
 	<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Sign Out"/>
 	</form>

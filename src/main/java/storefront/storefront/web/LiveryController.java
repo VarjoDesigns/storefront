@@ -12,6 +12,7 @@ import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.LiveryRepository;
 import storefront.storefront.domain.cars.CarmodelRepository;
 import storefront.storefront.domain.cars.ManufacturerRepository;
+import storefront.storefront.domain.users.UserRepository;
 @Controller
 public class LiveryController {
 	
@@ -28,21 +29,19 @@ public class LiveryController {
 	@Autowired
 	private ManufacturerRepository mrepository;
 	
-	@RequestMapping("/liverylist")
-	public String liveryList(Model model) {
-		model.addAttribute("Liveries", repository.findAll());
-		return "liverylist";
-	}
+	@Autowired
+	private UserRepository urepository;
 	
-	// Login page
+	
+// Login page
 	
 	@GetMapping("/login")
 	public String login(Model model) {
 		return "login";
 	}
-	
-	//Index page
-	
+		
+//Index page
+		
 	@GetMapping("/*")
 	public String index(Model model) {
 		return "index";
@@ -51,12 +50,22 @@ public class LiveryController {
 	
 // Livery
 	
+	// List liveries
+	@RequestMapping("/liverylist")
+	public String liveryList(Model model) {
+		model.addAttribute("Liveries", repository.findAll());
+		return "liverylist";
+	}
+		
 	// Add livery
 	@RequestMapping("/addlivery")
 		public String addLivery(Model model) {
 		model.addAttribute("newLivery", new Livery()); // Luo uuden tyhjän Livery olion, joka lähetetään addlivery.html
 		model.addAttribute("games", grepository.findAll()); // hakee kaikki GameRepositoryn tiedot, ja lähettää ne lomakkeelle
 		model.addAttribute("carmodels", cmrepository.findAll());
+		model.addAttribute("manufacturers", mrepository.findAll());
+		model.addAttribute("users", urepository.findAll());
+		
 		return "addlivery";
 	}
 	
@@ -68,14 +77,14 @@ public class LiveryController {
 		}
 	
 	// Change livery
-		
 		@RequestMapping(value = "/editlivery/{id}", method = RequestMethod.GET)
 		public String editLivery(@PathVariable("id") Long id, Model model) {
-			System.out.println("Edit metodi" + id);
+			System.out.println("Edit livery" + id);
 			model.addAttribute("editLivery", repository.findById(id).get());
 			model.addAttribute("games", grepository.findAll());
 			model.addAttribute("carmodels", cmrepository.findAll());	// Lähetetään automallit. Livery on sidottu automalliin
 			model.addAttribute("manufacturers", mrepository.findAll()); // Lähetetään automerkit. Livery on mallin kautta kiinni merkissä
+			model.addAttribute("users", urepository.findAll());
 			return "editlivery";
 		}
 	
@@ -86,5 +95,4 @@ public class LiveryController {
 		repository.deleteById(liveryId);
 		return "redirect:../liverylist";
 	}
-	
 }

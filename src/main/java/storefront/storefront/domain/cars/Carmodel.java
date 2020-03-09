@@ -43,7 +43,7 @@ public class Carmodel {
 	// Getterit
 	public Long getId() {return id;}
 	public String getName() {return name;}
-	public Manufacturer manufacturer() {return manufacturer;}
+	public Manufacturer getManufacturer() {return manufacturer;}
 	
 	// Setterit
 	public void setId(Long id) {this.id = id;}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Liverylist</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+	<header>
+	<a href="/index">Main menu</a>
+	</header>
+	<h1>Userlist</h1>
+	<table>
+		<tbody>
+
+			
+			<tr th:each = "user : ${Users}">
+			<td th:text="${user.firstName}"></td>
+			<td th:text="${user.lastName}"></td>
+			<td th:text="${user.username}"></td>
+			<td th:text="${user.role}"></td>
+			
+			<td><a th:href="@{/deleteuser/{id}(id=${user.id})}">Delete</a></td>
+			<td><a th:href="@{/edituser/{id}(id=${user.id})}">Edit</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+	<a href="/registerNewUser">Add new user</a>
+	</p>
+	
+	<footer>
+	<a href="/index">Main menu</a>
+	<a href="/liverylist">Liveries listed</a>
+	<a href="/userlist">Users listed</a>
+	<a href="/registerNewUser">Register new user</a>
+	<br>
+	<br>
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out"/>
+	</form>
+	</footer>
+	
+</body>
+</html>

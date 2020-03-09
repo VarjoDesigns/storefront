@@ -11,25 +11,31 @@
 	<form action="#" th:action="@{saveLivery}" method="post" th:object="${newLivery}">
 	
 	<label for ="name">Name</label>
-	<input id="name" type="text" th:field="*{name}"/>
+	<input id="name" type="text" th:field="*{name}"/><br>
 	
 	<label for ="name">Description</label>
-	<input type="text" id="description" th:field="*{description}"/>
+	<input type="text" id="description" th:field="*{description}"/><br>
 	
 	<label for ="name">Share code</label>
-	<input type="text" id="sharecode" th:field="*{sharecode}"/>
+	<input type="text" id="sharecode" th:field="*{sharecode}"/><br>
 	
 	<label for ="games">Game</label>
 	<select id="games" th:field="*{game}">
 		<option th:each="game: ${games}" th:value="${game.id}"  th:text="${game.name}"></option>
-	</select>
+	</select><br>
 	
-	<p> Kysymys: Miten saadaan alla oleva kenttä automerkillä suodatuksen taakse? </p>
+	<label for ="users">Creator</label>
+	<select id="users" th:field="*{user}">
+		<option th:each="user: ${users}" th:value="${user.id}"  th:text="${user.username}"></option>
+	</select><br>
+	
+	<p> <b>Kysymys opettajalle:</b><br>
+	Miten saadaan alla oleva kenttä (Automalli / Model) automerkillä (Manufacturer) suodatuksen taakse? </p>
 	
 	<label for ="carmodels">Model</label>
 	<select id="carmodels" th:field="*{carmodel}">
 		<option th:each="carmodel: ${carmodels}" th:value="${carmodel.id}"  th:text="${carmodel.name}"></option>
-	</select>
+	</select><br>
 	
 	<input type="submit" value="Save"></input>
 	</form>

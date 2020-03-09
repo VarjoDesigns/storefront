@@ -1,12 +1,13 @@
 package storefront.storefront.domain.users;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class User {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
     
@@ -16,13 +17,14 @@ public class User {
     @Column(name="lastname")
 	private String lastName;
     
-    @Column(name="gamertag")
-	private String gamertag;
+    //  @Column(name="gamertag")
+	//  private String gamertag;
 	
     // Username with unique constraint
     @Column(name = "username", nullable = false, unique = true)
     private String username;
-
+    
+    @NotNull
     @Column(name = "password", nullable = false)
     private String passwordHash;
         
