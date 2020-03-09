@@ -6,6 +6,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import storefront.storefront.domain.cars.Carmodel;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -31,6 +34,11 @@ public class Livery {
 	@JoinColumn(name = "gameid")
 	private Game game;
 	
+	@ManyToOne	// Yhdessä maassa voi olla useita valmistajia
+	@JsonIgnore
+	@JoinColumn(name = "carmodelid")
+	private Carmodel carmodel;
+	
 	// Konstruktorit
 	
 	public Livery() {
@@ -44,12 +52,13 @@ public class Livery {
 		this.sharecode = sharecode;
 	}
 	
-	public Livery(String name, String description, String sharecode, Game game) {
+	public Livery(String name, String description, String sharecode, Game game, Carmodel carmodel) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.sharecode = sharecode;
 		this.game = game;
+		this.carmodel = carmodel;
 	}
 	
 	
