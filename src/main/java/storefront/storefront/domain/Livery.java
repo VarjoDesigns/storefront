@@ -26,7 +26,7 @@ public class Livery {
 	// Category
 	// Game
 	
-	@ManyToOne	// Yhdessä pelissä voi olla useita liveryjä
+	@ManyToOne	// Yhdessä maassa voi olla useita valmistajia
 	@JsonIgnore
 	@JoinColumn(name = "gameid")
 	private Game game;

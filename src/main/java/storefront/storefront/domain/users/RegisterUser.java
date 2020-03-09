@@ -1,4 +1,4 @@
-package storefront.storefront.domain;
+package storefront.storefront.domain.users;
 
 import javax.validation.constraints.Size;
 

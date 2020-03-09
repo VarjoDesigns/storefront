@@ -10,8 +10,8 @@ import storefront.storefront.domain.Game;
 import storefront.storefront.domain.GameRepository;
 import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.LiveryRepository;
-import storefront.storefront.domain.User;
-import storefront.storefront.domain.UserRepository;
+import storefront.storefront.domain.users.User;
+import storefront.storefront.domain.users.UserRepository;
 
 
 @SpringBootApplication

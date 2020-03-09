@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import storefront.storefront.domain.User;
-import storefront.storefront.domain.UserRepository;
-import storefront.storefront.domain.RegisterUser;
+import storefront.storefront.domain.users.RegisterUser;
+import storefront.storefront.domain.users.User;
+import storefront.storefront.domain.users.UserRepository;
 
 @Controller
 public class UserController {

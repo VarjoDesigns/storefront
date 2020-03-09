@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import storefront.storefront.domain.User;
-import storefront.storefront.domain.UserRepository;
+import storefront.storefront.domain.users.User;
+import storefront.storefront.domain.users.UserRepository;
 
 /**
  * This class is used by spring security to authenticate and authorize user

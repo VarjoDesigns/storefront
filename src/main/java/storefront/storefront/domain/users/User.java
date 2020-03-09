@@ -1,4 +1,4 @@
-package storefront.storefront.domain;
+package storefront.storefront.domain.users;
 
 import javax.persistence.*;
 
@@ -15,6 +15,9 @@ public class User {
     
     @Column(name="lastname")
 	private String lastName;
+    
+    @Column(name="gamertag")
+	private String gamertag;
 	
     // Username with unique constraint
     @Column(name = "username", nullable = false, unique = true)

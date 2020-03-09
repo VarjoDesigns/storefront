@@ -6,6 +6,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import storefront.storefront.domain.users.User;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -19,13 +22,16 @@ public class Vinylgroup {
 	private String name;
 	private String description;
 	private String sharecode;
-	private String gamertag;
-	
 	
 	@ManyToOne	// Yhdessä pelissä voi olla useita Vinyl Groupeja
 	@JsonIgnore
 	@JoinColumn(name = "gameid")
 	private Game game;
+	
+	@ManyToOne	// Yhdessä pelissä voi olla useita Vinyl Groupeja
+	@JsonIgnore
+	@JoinColumn(name = "userid")
+	private User user;
 	
 	// Konstruktorit
 	
@@ -40,12 +46,13 @@ public class Vinylgroup {
 		this.sharecode = sharecode;
 	}
 	
-	public Vinylgroup(String name, String description, String sharecode, Game game) {
+	public Vinylgroup(String name, String description, String sharecode, Game game, User user) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.sharecode = sharecode;
 		this.game = game;
+		this.user = user;
 	}
 	
 		// Getterit
@@ -53,7 +60,7 @@ public class Vinylgroup {
 		public String getName() {return name;}
 		public String getDescription() {return description;}
 		public String getSharecode() {return sharecode;}
-		public String gamertag() {return gamertag;}
+		public User getUser() {return user;}
 		public Game getGame() {return game;}
 		
 
@@ -62,12 +69,12 @@ public class Vinylgroup {
 		public void setName(String name) {this.name = name;}
 		public void setDescription(String description) {this.description = description;}
 		public void setSharecode(String sharecode) {this.sharecode = sharecode;}
-		public void setGamertag(String gamertag) {this.gamertag = gamertag;}
+		public void setUser(User user) {this.user = user;}
 		public void setGame(Game game) {this.game = game;}
 
 		@Override
 		public String toString() {
 			return "Vinylgroup [id=" + id + ", name=" + name + ", description=" + description + ", sharecode="
-					+ sharecode + ", gamertag=" + gamertag + "]";
+					+ sharecode + "]";
 		}
 }
