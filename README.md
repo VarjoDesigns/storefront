@@ -25,3 +25,10 @@ Add a new user sign up to the login page <br>
 Add data validation <br>
 Make sure only admins are allowed to CRUD, users are only allowed to read! <br>
 Switch to MariaDB (High priority, but easier to test previous steps if on H2) <br>
+
+
+<h3> Classes </h3><br>
+Games<br>
+Liveries<br>
+Users<br>
+Vinylgroups<br>
