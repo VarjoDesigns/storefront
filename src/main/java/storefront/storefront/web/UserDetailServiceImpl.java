@@ -13,6 +13,9 @@ import storefront.storefront.domain.UserRepository;
 /**
  * This class is used by spring security to authenticate and authorize user
  **/
+
+// Tätä logiikkaa ei tarvitse itse rakentaa, on vakio spring serviceluokka t: opettaja
+
 @Service
 public class UserDetailServiceImpl implements UserDetailsService  {
 	private final UserRepository repository;

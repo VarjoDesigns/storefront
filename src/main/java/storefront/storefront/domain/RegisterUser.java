@@ -2,6 +2,9 @@ package storefront.storefront.domain;
 
 import javax.validation.constraints.Size;
 
+
+// Apuluokka, ei ole entiteetti! Tarkastaa käyttäjätietoja
+
 public class RegisterUser {
 	
 @Size(min=5)

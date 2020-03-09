@@ -47,14 +47,14 @@ public class UserController {
 					userRepository.save(newUser);
 				} else {
 					bindingResult.rejectValue("username", "err.username", "Username already exists");
-					return "registration";
+					return "register";
 				}
 			} else {
 				bindingResult.rejectValue("passwordCheck", "err.passCheck", "Passwords does not match");
-				return "registration";
+				return "register";
 			}
 		} else {
-			return "registration";
+			return "register";
 		}
 		return "redirect:/login";
 	}
