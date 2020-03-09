@@ -5,6 +5,9 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 </head>
 <body>
+	<header>
+	<a href="/index">Main menu</a>
+	</header>
 	<h1>Liverylist</h1>
 	<table>
 		<tbody>
@@ -12,15 +15,17 @@
 			<td th:text="${livery.name}"></td>
 			<td th:text="${livery.description}"></td>
 			<td th:text="${livery.sharecode}"></td>
-			<td th:text="${livery.game.name}"></td>
 			<td><a th:href="@{/delete/{id}(id=${livery.id})}">Delete</a></td>
 			<td><a th:href="@{/editlivery/{id}(id=${livery.id})}">Edit</a></td>
 			</tr>
 		</tbody>
 	</table>
 	<a href="/addlivery">Add new livery</a>
-		
-	<p>For some reason the edit does not work... Can you crack it?</p>
+	<footer>
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out"/>
+	</form>
+	</footer>
 	
 </body>
 </html>

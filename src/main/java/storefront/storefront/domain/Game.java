@@ -1,14 +1,11 @@
 package storefront.storefront.domain;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -40,22 +37,10 @@ public class Game {
 	}
 	
 	// Getterit
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getAbbreviation() {
-		return abbreviation;
-	}
-
-	public List<Livery> getLiveries() {
-		return liveries;
-	}
+	public Long getId() {return id;}
+	public String getName() {return name;}
+	public String getAbbreviation() {return abbreviation;}
+	public List<Livery> getLiveries() {return liveries;}
 
 	// Setterit
 	

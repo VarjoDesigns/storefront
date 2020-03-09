@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Storefront application</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+	<header>
+	<a href="/index">Main menu</a>
+	</header>
+	<h1>Storefront application</h1>
+	<p>Welcome to storefront application! This application lists liveries and vinyl groups in Forza games.</p>
+	
+	<a href="/index">Main menu</a>
+	<a href="/liverylist">Liveries listed</a>
+	
+	<footer>
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out"/>
+	</form>
+	</footer>
+	
+</body>
+</html>

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,8 +16,10 @@ import javax.persistence.GenerationType;
 public class Livery {
 	
 	@Id
+	@NotNull
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	@NotNull
 	private String name;
 	private String description;
 	private String sharecode;
@@ -51,47 +54,22 @@ public class Livery {
 		this.sharecode = sharecode;
 		this.game = game;
 	}
+	
+	
+	// Getterit
+	public Long getId() {return id;}
+	public String getName() {return name;}
+	public String getDescription() {return description;}
+	public String getSharecode() {return sharecode;}
+	public Game getGame() {return game;}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getSharecode() {
-		return sharecode;
-	}
-
-	public void setSharecode(String sharecode) {
-		this.sharecode = sharecode;
-	}
-
-	public Game getGame() {
-		return game;
-	}
-
-	public void setGame(Game game) {
-		this.game = game;
-	}
-
+	// Setterit
+	public void setId(Long id) {this.id = id;}
+	public void setName(String name) {this.name = name;}
+	public void setDescription(String description) {this.description = description;}
+	public void setSharecode(String sharecode) {this.sharecode = sharecode;}
+	public void setGame(Game game) {this.game = game;}
+	
 	@Override
 	public String toString() {
 		return "Livery [id=" + id + ", name=" + name + ", description=" + description + ", sharecode=" + sharecode

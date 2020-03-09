@@ -1,4 +1,4 @@
-package storefront.storefront.domain;
+package storefront.storefront.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
