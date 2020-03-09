@@ -68,6 +68,7 @@ public class Livery {
 	public String getDescription() {return description;}
 	public String getSharecode() {return sharecode;}
 	public Game getGame() {return game;}
+	public Carmodel getCarmodel() {return carmodel;}
 
 	// Setterit
 	public void setId(Long id) {this.id = id;}
@@ -75,6 +76,7 @@ public class Livery {
 	public void setDescription(String description) {this.description = description;}
 	public void setSharecode(String sharecode) {this.sharecode = sharecode;}
 	public void setGame(Game game) {this.game = game;}
+	public void setCarmodel(Carmodel carmodel) {this.carmodel = carmodel;}
 	
 	@Override
 	public String toString() {

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import storefront.storefront.domain.GameRepository;
 import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.LiveryRepository;
+import storefront.storefront.domain.cars.CarmodelRepository;
+import storefront.storefront.domain.cars.ManufacturerRepository;
 @Controller
 public class LiveryController {
 	
@@ -19,6 +21,12 @@ public class LiveryController {
 	
 	@Autowired
 	private GameRepository grepository;
+	
+	@Autowired
+	private CarmodelRepository cmrepository;
+	
+	@Autowired
+	private ManufacturerRepository mrepository;
 	
 	@RequestMapping("/liverylist")
 	public String liveryList(Model model) {
@@ -48,6 +56,7 @@ public class LiveryController {
 		public String addLivery(Model model) {
 		model.addAttribute("newLivery", new Livery()); // Luo uuden tyhjän Livery olion, joka lähetetään addlivery.html
 		model.addAttribute("games", grepository.findAll()); // hakee kaikki GameRepositoryn tiedot, ja lähettää ne lomakkeelle
+		model.addAttribute("carmodels", cmrepository.findAll());
 		return "addlivery";
 	}
 	
@@ -65,6 +74,8 @@ public class LiveryController {
 			System.out.println("Edit metodi" + id);
 			model.addAttribute("editLivery", repository.findById(id).get());
 			model.addAttribute("games", grepository.findAll());
+			model.addAttribute("carmodels", cmrepository.findAll());	// Lähetetään automallit. Livery on sidottu automalliin
+			model.addAttribute("manufacturers", mrepository.findAll()); // Lähetetään automerkit. Livery on mallin kautta kiinni merkissä
 			return "editlivery";
 		}
 	

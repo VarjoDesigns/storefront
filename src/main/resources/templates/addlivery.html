@@ -24,6 +24,11 @@
 		<option th:each="game: ${games}" th:value="${game.id}"  th:text="${game.name}"></option>
 	</select>
 	
+	<label for ="carmodels">Model</label>
+	<select id="carmodels" th:field="*{carmodel}">
+		<option th:each="carmodel: ${carmodels}" th:value="${carmodel.id}"  th:text="${carmodel.name}"></option>
+	</select>
+	
 	<input type="submit" value="Save"></input>
 	</form>
 	</div>
