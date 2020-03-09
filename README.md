@@ -6,6 +6,13 @@ Features: <br>
 CRUD: Create, read, update or delete Liveries, Games etc. <br>
 REST: Features REST (Documentation not finished) <br>
 
+
+<h3> How does it work? </h3>
+<p> This program has three main controllers: <br>
+  <b>UserController</b> takes charge of handling users and their roles, as well as mapping user related sites such as registerNewUser. 
+  <b>ApiController</b> keeps up the REST service
+  <b>LiveryController</b> is in charge of running the software main pages, as well as listing pages and edit pages.
+
 Notes: <br>
 
 
