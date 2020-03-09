@@ -13,13 +13,13 @@ REST: Features REST (Documentation not finished) <br>
   <b>ApiController</b> keeps up the REST service. <br>
   <b>LiveryController</b> is in charge of running the software main pages, as well as listing pages and edit pages.<br>
 
-Notes: <br>
+<h3>Notes: </h3><br>
 
 
-To do (FIX): <br>
+<h3>To do (FIX): </h3><br>
 No backlog! :D
 
-To do (ADD): <br>
+<h3>To do (ADD): </h3><br>
 Add Bootstrap CSS for better front end (Low priority) <br>
 Add a new user sign up to the login page <br>
 Add data validation <br>
