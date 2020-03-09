@@ -27,7 +27,7 @@ Make sure only admins are allowed to CRUD, users are only allowed to read! <br>
 Switch to MariaDB (High priority, but easier to test previous steps if on H2) <br>
 
 
-<h3> Classes </h3><br>
+<h3> Classes </h3>
 Games<br>
 Liveries<br>
 Users<br>
