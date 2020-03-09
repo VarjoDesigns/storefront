@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import storefront.storefront.domain.GameRepository;
 import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.LiveryRepository;
+import storefront.storefront.domain.cars.Carmodel;
 import storefront.storefront.domain.cars.CarmodelRepository;
 import storefront.storefront.domain.cars.ManufacturerRepository;
 import storefront.storefront.domain.users.UserRepository;
@@ -94,5 +95,44 @@ public class LiveryController {
 		System.out.println("Poisto metodi" + liveryId);
 		repository.deleteById(liveryId);
 		return "redirect:../liverylist";
+	}
+	
+	// List Carmodels
+	@RequestMapping("/carmodellist")
+	public String carmodelList(Model model) {
+		model.addAttribute("Carmodels", cmrepository.findAll());
+		return "carmodellist";
+	}
+	
+	// Add carmodel
+	@RequestMapping("/addcarmodel")
+	public String addCarmodel(Model model) {
+	model.addAttribute("newCarmodel", new Carmodel()); // Luo uuden tyhjän Livery olion, joka lähetetään addlivery.html
+	model.addAttribute("manufacturers", mrepository.findAll());
+	return "addcarmodel";
+	}
+	
+	// Save added carmodel
+	@RequestMapping(value = "/saveCarmodel", method = RequestMethod.POST)
+	public String saveCarmodel(Carmodel carmodel) {
+	cmrepository.save(carmodel);
+	return "redirect:carmodellist";
+	}
+	
+	// Edit carmodel
+	
+	@RequestMapping(value = "/editcarmodel/{id}", method = RequestMethod.GET)
+	public String editCarmodel(@PathVariable("id") Long cmid, Model model) {
+		model.addAttribute("editCarmodel", cmrepository.findById(cmid).get());
+		model.addAttribute("manufacturers", mrepository.findAll());
+		return "editcarmodel";
+	}
+	
+	// Delete carmodel
+	@RequestMapping(value = "/deletecarmodel/{id}", method = RequestMethod.GET)
+	public String deleteCarmodel(@PathVariable("id") Long carmodelId, Model model) { // Path variable poimii requestista "path variable" -tiedon (ID)
+		System.out.println("Poisto metodi" + carmodelId);
+		cmrepository.deleteById(carmodelId);
+		return "redirect:../carmodellist";
 	}
 }

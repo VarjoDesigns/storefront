@@ -1,0 +1,40 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit livery information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+		<form th:object="${editCarmodel}" th:action="@{/saveCarmodel}" action="#" method="post">
+			<input type="hidden" id="id" th:field="*{id}"/>
+			
+    		<label for="manufacturers">Manufacturer</label>
+			 <select id="manufacturers" th:field="*{manufacturer}">
+       			<option th:each="manufacturer: ${manufacturers}" 
+       			th:value="${manufacturer.id}" th:text="${manufacturer.name}"></option>
+    		</select><br>
+    		
+    		<label for="name">Name </label> 
+			<input type="text" id="name" th:field="${editCarmodel.name}" /><br>
+    		
+			<input type="submit" value="Update"></input>
+		</form>
+		
+	<footer>
+	<a href="/index">Main menu</a>
+	<a href="/liverylist">Liveries listed</a>
+	<a href="/userlist">Users listed</a>
+	<a href="/carmodellist">Car models listed</a>
+	<a href="/registerNewUser">Register new user</a>
+	<br>
+	<br>
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out"/>
+	</form>
+	</footer>
+
+	</div>
+</body>
+</html>

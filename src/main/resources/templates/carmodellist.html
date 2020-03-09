@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Storefront application</title>
+	<title>Carmodel list</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 </head>
 <body>
 	<header>
 	<a href="/index">Main menu</a>
 	</header>
-	<h1>Storefront application</h1>
-	<p>Welcome to storefront application! This application lists liveries and vinyl groups in Forza games.</p>
-	
-	
+	<h1>Car model list</h1>
+	<table>
+		<tbody>
+			<th th:text = "Manufacturer"></th>
+			<th th:text = "Model"></th>
+			
+			
+			<tr th:each = "carmodel : ${Carmodels}">
+			<td th:text="${carmodel.manufacturer.name}"></td>
+			<td th:text="${carmodel.name}"></td>
+			
+			<td><a th:href="@{/deletecarmodel/{id}(id=${carmodel.id})}">Delete</a></td>
+			<td><a th:href="@{/editcarmodel/{id}(id=${carmodel.id})}">Edit</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+	<a href="/addcarmodel">Add a new model</a>
+	</p>
 	
 	<footer>
 	<a href="/index">Main menu</a>

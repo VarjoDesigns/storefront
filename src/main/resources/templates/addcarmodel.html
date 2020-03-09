@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add a new car model</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+	<div class="container">
+	<h1>Add a new car model</h1>
+	<div>
+	<form action="#" th:action="@{saveCarmodel}" method="post" th:object="${newCarmodel}">
+	
+	<label for ="manufacturers">Manufacturer</label>
+	<select id="manufacturers" th:field="*{manufacturer}">
+		<option th:each="manufacturer: ${manufacturers}" th:value="${manufacturer.id}"  th:text="${manufacturer.name}"></option>
+	</select><br>
+	
+	<label for ="name">Model</label>
+	<input id="name" type="text" th:field="*{name}"/><br>
+	
+	<input type="submit" value="Save"></input>
+	</form>
+	</div>
+	
+	<footer>
+	<a href="/index">Main menu</a>
+	<a href="/liverylist">Liveries listed</a>
+	<a href="/userlist">Users listed</a>
+	<a href="/carmodellist">Car models listed</a>
+	<a href="/registerNewUser">Register new user</a>
+	<br>
+	<br>
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out"/>
+	</form>
+	</footer>
+</div>
+</body>
+</html>
