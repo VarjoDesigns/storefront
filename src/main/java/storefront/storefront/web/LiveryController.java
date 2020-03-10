@@ -12,6 +12,9 @@ import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.LiveryRepository;
 import storefront.storefront.domain.cars.Carmodel;
 import storefront.storefront.domain.cars.CarmodelRepository;
+import storefront.storefront.domain.cars.Country;
+import storefront.storefront.domain.cars.CountryRepository;
+import storefront.storefront.domain.cars.Manufacturer;
 import storefront.storefront.domain.cars.ManufacturerRepository;
 import storefront.storefront.domain.users.UserRepository;
 @Controller
@@ -32,6 +35,9 @@ public class LiveryController {
 	
 	@Autowired
 	private UserRepository urepository;
+	
+	@Autowired
+	private CountryRepository crepository;
 	
 	
 // Login page
@@ -97,6 +103,8 @@ public class LiveryController {
 		return "redirect:../liverylist";
 	}
 	
+// Carmodel
+	
 	// List Carmodels
 	@RequestMapping("/carmodellist")
 	public String carmodelList(Model model) {
@@ -130,9 +138,76 @@ public class LiveryController {
 	
 	// Delete carmodel
 	@RequestMapping(value = "/deletecarmodel/{id}", method = RequestMethod.GET)
-	public String deleteCarmodel(@PathVariable("id") Long carmodelId, Model model) { // Path variable poimii requestista "path variable" -tiedon (ID)
-		System.out.println("Poisto metodi" + carmodelId);
-		cmrepository.deleteById(carmodelId);
+	public String deleteCarmodel(@PathVariable("id") Long carmodelid, Model model) { // Path variable poimii requestista "path variable" -tiedon (ID)
+		System.out.println("Poisto metodi" + carmodelid);
+		cmrepository.deleteById(carmodelid);
 		return "redirect:../carmodellist";
 	}
+	
+// Manufacturer
+	
+	// Add manufacturer
+	@RequestMapping("/addcarmanufacturer")
+	public String addManufacturer(Model model) {
+	model.addAttribute("newManufacturer", new Manufacturer()); // Luo uuden tyhjän olion
+	model.addAttribute("countries", crepository.findAll());
+	return "addcarmanufacturer";
+	}
+	
+	// Save added manufacturer
+	@RequestMapping(value = "/savecarmanufacturer", method = RequestMethod.POST)
+	public String saveManufacturer(Manufacturer manufacturer) {
+	mrepository.save(manufacturer);
+	return "redirect:carmanufacturerlist";
+	}
+	
+	// Edit manufacturer
+	
+	@RequestMapping(value = "/editcarmanufacturer/{id}", method = RequestMethod.GET)
+	public String editManufacturer(@PathVariable("id") Long manid, Model model) {
+		model.addAttribute("editCarmodel", cmrepository.findById(manid).get());
+		model.addAttribute("manufacturers", mrepository.findAll());
+		return "editcarmanufacturer";
+	}
+		
+	// Delete manufacturer
+	@RequestMapping(value = "/deletecarmanufacturer/{id}", method = RequestMethod.GET)
+	public String deleteManufacturer(@PathVariable("id") Long manufacturerid, Model model) { // Path variable poimii requestista "path variable" -tiedon (ID)
+		System.out.println("Poisto metodi" + manufacturerid);
+		crepository.deleteById(manufacturerid);
+		return "redirect:../carmanufacturerlist";
 }
+
+//Country
+		
+	// Add country
+	@RequestMapping("/addcountry")
+	public String addCountry(Model model) {
+	model.addAttribute("newCountry", new Country()); // Luo uuden tyhjän olion
+	return "addcountry";
+	}
+	
+	// Save added country
+	@RequestMapping(value = "/savecountry", method = RequestMethod.POST)
+	public String saveCountry(Country country) {
+	crepository.save(country);
+	return "redirect:countrylist";
+	}
+	
+	// Edit country
+	
+	@RequestMapping(value = "/editcountry/{id}", method = RequestMethod.GET)
+	public String editCountry(@PathVariable("id") Long cid, Model model) {
+		model.addAttribute("editCountry", crepository.findById(cid).get());
+		return "editcountry";
+	}
+		
+	// Delete country
+	@RequestMapping(value = "/deletecountry/{id}", method = RequestMethod.GET)
+	public String deleteCountry(@PathVariable("id") Long countryid, Model model) { // Path variable poimii requestista "path variable" -tiedon (ID)
+		System.out.println("Poisto metodi" + countryid);
+		crepository.deleteById(countryid);
+		return "redirect:../countrylist";
+}
+}
+
