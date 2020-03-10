@@ -23,19 +23,14 @@ public class LiveryController {
 	// Injektoidaan repositoryt
 	@Autowired
 	private LiveryRepository repository;
-	
 	@Autowired
 	private GameRepository grepository;
-	
 	@Autowired
 	private CarmodelRepository cmrepository;
-	
 	@Autowired
 	private ManufacturerRepository mrepository;
-	
 	@Autowired
 	private UserRepository urepository;
-	
 	@Autowired
 	private CountryRepository crepository;
 	
@@ -128,7 +123,6 @@ public class LiveryController {
 	}
 	
 	// Edit carmodel
-	
 	@RequestMapping(value = "/editcarmodel/{id}", method = RequestMethod.GET)
 	public String editCarmodel(@PathVariable("id") Long cmid, Model model) {
 		model.addAttribute("editCarmodel", cmrepository.findById(cmid).get());
@@ -146,16 +140,23 @@ public class LiveryController {
 	
 // Manufacturer
 	
+	// List Carmodels
+		@RequestMapping("/carmanufacturerlist")
+		public String carmanufacturerList(Model model) {
+			model.addAttribute("Manufacturers", mrepository.findAll());
+			return "carmanufacturerlist";
+		}
+	
 	// Add manufacturer
 	@RequestMapping("/addcarmanufacturer")
 	public String addManufacturer(Model model) {
-	model.addAttribute("newManufacturer", new Manufacturer()); // Luo uuden tyhjän olion
+	model.addAttribute("newCarmanufacturer", new Manufacturer()); // Luo uuden tyhjän olion
 	model.addAttribute("countries", crepository.findAll());
 	return "addcarmanufacturer";
 	}
 	
 	// Save added manufacturer
-	@RequestMapping(value = "/savecarmanufacturer", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveCarmanufacturer", method = RequestMethod.POST)
 	public String saveManufacturer(Manufacturer manufacturer) {
 	mrepository.save(manufacturer);
 	return "redirect:carmanufacturerlist";
@@ -164,9 +165,10 @@ public class LiveryController {
 	// Edit manufacturer
 	
 	@RequestMapping(value = "/editcarmanufacturer/{id}", method = RequestMethod.GET)
-	public String editManufacturer(@PathVariable("id") Long manid, Model model) {
-		model.addAttribute("editCarmodel", cmrepository.findById(manid).get());
-		model.addAttribute("manufacturers", mrepository.findAll());
+	public String editCarmanufacturer(@PathVariable("id") Long manid, Model model) {
+		model.addAttribute("editCarmanufacturer", mrepository.findById(manid).get());
+		model.addAttribute("countries", crepository.findAll());
+		System.out.println("Manufacturer id: " + manid + "onko olemassa? ");
 		return "editcarmanufacturer";
 	}
 		
@@ -174,11 +176,18 @@ public class LiveryController {
 	@RequestMapping(value = "/deletecarmanufacturer/{id}", method = RequestMethod.GET)
 	public String deleteManufacturer(@PathVariable("id") Long manufacturerid, Model model) { // Path variable poimii requestista "path variable" -tiedon (ID)
 		System.out.println("Poisto metodi" + manufacturerid);
-		crepository.deleteById(manufacturerid);
+		mrepository.deleteById(manufacturerid);
 		return "redirect:../carmanufacturerlist";
 }
 
 //Country
+	
+	// List Countries
+		@RequestMapping("/countrylist")
+		public String countryList(Model model) {
+			model.addAttribute("countries", crepository.findAll());
+			return "countrylist";
+		}
 		
 	// Add country
 	@RequestMapping("/addcountry")
@@ -188,14 +197,13 @@ public class LiveryController {
 	}
 	
 	// Save added country
-	@RequestMapping(value = "/savecountry", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveCountry", method = RequestMethod.POST)
 	public String saveCountry(Country country) {
 	crepository.save(country);
 	return "redirect:countrylist";
 	}
 	
 	// Edit country
-	
 	@RequestMapping(value = "/editcountry/{id}", method = RequestMethod.GET)
 	public String editCountry(@PathVariable("id") Long cid, Model model) {
 		model.addAttribute("editCountry", crepository.findById(cid).get());

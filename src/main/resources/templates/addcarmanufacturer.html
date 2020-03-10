@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Carmodel list</title>
+	<title>Add a new car manufacturer</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 </head>
 <body>
-	<header>
-	<a href="/index">Main menu</a>
-	</header>
-	<h1>Car model list</h1>
-	<table>
-		<tbody>
-			<th th:text = "Manufacturer"></th>
-			<th th:text = "Model"></th>
-			
-			
-			<tr th:each = "carmodel : ${Carmodels}">
-			<td th:text="${carmodel.manufacturer.name}"></td>
-			<td th:text="${carmodel.name}"></td>
-			
-			<td><a th:href="@{/deletecarmodel/{id}(id=${carmodel.id})}">Delete</a></td>
-			<td><a th:href="@{/editcarmodel/{id}(id=${carmodel.id})}">Edit</a></td>
-			</tr>
-		</tbody>
-	</table>
-	<p>
-	<a href="/addcarmodel">Add a new model</a>
-	</p>
+	<div class="container">
+	<h1>Add a new car manufacturer</h1>
+	<div>
+	<form action="#" th:action="@{saveCarmanufacturer}" method="post" th:object="${newCarmanufacturer}">
+	
+	<label for ="name">Manufacturer</label>
+	<input id="name" type="text" th:field="*{name}"/><br>
+	
+	<label for ="countries">Country</label>
+	<select id="countries" th:field="*{country}">
+		<option th:each="country: ${countries}" th:value="${country.id}"  th:text="${country.name}"></option>
+	</select><br>
+	
+	<input type="submit" value="Save"></input>
+	</form>
+	</div>
 	
 	<footer>
 	<a href="/index">Main menu</a><br>
@@ -42,6 +36,6 @@
 			<input type="submit" value="Sign Out"/>
 	</form>
 	</footer>
-	
+</div>
 </body>
 </html>

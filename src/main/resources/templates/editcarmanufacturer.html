@@ -6,17 +6,17 @@
 </head>
 <body>
 	<div>
-		<form th:object="${editCarmodel}" th:action="@{/saveCarmodel}" action="#" method="post">
+		<form th:object="${editCarmanufacturer}" th:action="@{/saveCarmanufacturer}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}"/>
 			
-    		<label for="manufacturers">Manufacturer</label>
-			 <select id="manufacturers" th:field="*{manufacturer}">
-       			<option th:each="manufacturer: ${manufacturers}" 
-       			th:value="${manufacturer.id}" th:text="${manufacturer.name}"></option>
+    		<label for="countries">Manufacturer</label>
+			 <select id="countries" th:field="*{country}">
+       			<option th:each="country: ${countries}" 
+       			th:value="${country.id}" th:text="${country.name}"></option>
     		</select><br>
     		
     		<label for="name">Name </label> 
-			<input type="text" id="name" th:field="${editCarmodel.name}" /><br>
+			<input type="text" id="name" th:field="${editCarmanufacturer.name}" /><br>
     		
 			<input type="submit" value="Update"></input>
 		</form>
