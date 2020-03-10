@@ -4,9 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta title = "loginsite">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Kirjautumissivu</title>
   </head>
   <body>
+  		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<a href="/index" class="navbar-brand">
+		<img src="../glacier-03.png"  height="50" class="d-inline-block align-top" alt="">
+		</a>
+		</nav>
+  
+  		<div class="container">
      	<div th:if="${param.error}">
 		Invalid username and password.
 		</div>
@@ -18,5 +26,6 @@
 		</form>
 		
 		<a href="/registerNewUser">Register new user</a>
+		</div>
 </body>
 </html>

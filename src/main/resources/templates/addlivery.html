@@ -3,58 +3,88 @@
 <head>
 	<title>Add livery</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<a href="/index" class="navbar-brand">
+		<img src="../glacier-03.png"  height="50" class="d-inline-block align-top" alt="">
+		</a>
+		<button class="navbar-toggler"><span class="navbar-toggler-icon" data-toggle="collapse" data-target="#navbarMenu"></span></button>
+		<div class="collapse navbar-collapse" id="navbarMenu">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item"><a href="/liverylist" class="nav-link">Liveries</a></li>
+			<li class="nav-item"><a href="/carmanufacturerlist" class="nav-link">Manufacturers</a></li>
+			<li class="nav-item"><a href="/carmodellist" class="nav-link">Car models</a></li>
+			<li class="nav-item"><a href="/countrylist" class="nav-link">Countries</a></li>
+			<li class="nav-item"><a href="/userlist" class="nav-link">Users</a></li>
+			<li class="Nav-item">
+				<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-danger">
+				</form></li>
+		</ul>
+		</div>
+	</nav>
+	
+	
 	<div class="container">
 	<h1>Add liveries</h1>
 	<div>
 	<form action="#" th:action="@{saveLivery}" method="post" th:object="${newLivery}">
 	
-	<label for ="name">Name</label>
-	<input id="name" type="text" th:field="*{name}"/><br>
+	<div class="form-group">
+		<label for ="name">Name</label>
+		<input id="name" type="text" th:field="*{name}" class="form-control" placeholder="E.g. 'Cookie monster'"/>
+		<small class="form-text text-muted">Please add the accurate file name!</small>
+	</div>
 	
+	<div class="form-group">
 	<label for ="name">Description</label>
-	<input type="text" id="description" th:field="*{description}"/><br>
+	<input type="text" id="description" th:field="*{description}" class="form-control"/>
+	</div>
 	
+	<div class="form-group">
 	<label for ="name">Share code</label>
-	<input type="text" id="sharecode" th:field="*{sharecode}"/><br>
+	<input type="text" id="sharecode" th:field="*{sharecode}" class="form-control"/>
+	<small class="form-text text-muted">You can find the sharecode from storefront. Go to the file and press RS for "Request sharecode"</small>
+	</div>
 	
+	<div class="form-group">
 	<label for ="games">Game</label>
-	<select id="games" th:field="*{game}">
-		<option th:each="game: ${games}" th:value="${game.id}"  th:text="${game.name}"></option>
-	</select><br>
+	<select id="games" th:field="*{game}" class="form-control">
+		<option th:each="game: ${games}" th:value="${game.id}"  th:text="${game.name}" class="form-control"></option>
+	</select>
+	</div>
 	
+	<div class="form-group">
 	<label for ="users">Creator</label>
-	<select id="users" th:field="*{user}">
+	<select id="users" th:field="*{user}" class="form-control">
 		<option th:each="user: ${users}" th:value="${user.id}"  th:text="${user.username}"></option>
-	</select><br>
+	</select>
+	</div>
 	
 	<p> <b>Kysymys opettajalle:</b><br>
 	Miten saadaan alla oleva kenttä (Automalli / Model) automerkillä (Manufacturer) suodatuksen taakse? </p>
 	
+	<div class="form-group">
 	<label for ="carmodels">Model</label>
-	<select id="carmodels" th:field="*{carmodel}">
-		<option th:each="carmodel: ${carmodels}" th:value="${carmodel.id}"  th:text="${carmodel.name}"></option>
-	</select><br>
+	<select id="carmodels" th:field="*{carmodel}" class="form-control">
+		<option th:each="carmodel: ${carmodels}" th:value="${carmodel.id}" th:text="${carmodel.name}"></option>
+	</select>
+	</div>
 	
-	<input type="submit" value="Save"></input>
+	<input type="submit" value="Save" class="btn btn-primary"></input>
 	</form>
 	</div>
 	
 	<footer>
-	<a href="/index">Main menu</a><br>
-	<a href="/liverylist">Liveries listed</a><br>
-	<a href="/userlist">Users listed</a><br>
-	<a href="/carmodellist">Car models listed</a><br>
-	<a href="/carmanufacturerlist">Car manufacturers listed</a><br>
-	<a href="/countrylist">Countries listed</a><br>
-	<a href="/registerNewUser">Register new user</a><br>
-	<br>
-	<br>
-	<form th:action="@{/logout}" method="post">
-			<input type="submit" value="Sign Out"/>
-	</form>
 	</footer>
 </div>
 </body>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </html>

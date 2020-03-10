@@ -41,13 +41,11 @@ public class LiveryController {
 	public String login(Model model) {
 		return "login";
 	}
-		
+	
+	
 //Index page
 		
-	@GetMapping("/*")
-	public String index(Model model) {
-		return "index";
-	}
+	
 
 	
 // Livery
