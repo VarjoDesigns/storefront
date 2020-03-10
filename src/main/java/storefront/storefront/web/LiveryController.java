@@ -44,7 +44,11 @@ public class LiveryController {
 	
 	
 //Index page
-		
+	
+	@GetMapping("/index")
+	public String index(Model model) {
+		return "index";
+	}
 	
 
 	

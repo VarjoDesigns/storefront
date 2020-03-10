@@ -3,30 +3,41 @@
 <head>
 	<title>Storefront application</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<a href="/index" class="navbar-brand">
+		<img src="../glacier-03.png"  height="50" class="d-inline-block align-top" alt="">
+		</a>
+		<button class="navbar-toggler"><span class="navbar-toggler-icon" data-toggle="collapse" data-target="#navbarMenu"></span></button>
+		<div class="collapse navbar-collapse" id="navbarMenu">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item"><a href="/liverylist" class="nav-link">Liveries</a></li>
+			<li class="nav-item"><a href="/carmanufacturerlist" class="nav-link">Manufacturers</a></li>
+			<li class="nav-item"><a href="/carmodellist" class="nav-link">Car models</a></li>
+			<li class="nav-item"><a href="/countrylist" class="nav-link">Countries</a></li>
+			<li class="nav-item"><a href="/userlist" class="nav-link">Users</a></li>
+			<li class="Nav-item">
+				<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-danger">
+				</form></li>
+		</ul>
+		</div>
+	</nav>
+	
+	<div class="container">
 	<header>
-	<a href="/index">Main menu</a>
 	</header>
-	<h1>Storefront application</h1>
-	<p>Welcome to storefront application! This application lists liveries and vinyl groups in Forza games.</p>
 	
+	<div class="text-center">
+	<img src="../glacier-01.png" height="400" class="d-inline-block align-top" alt="">
+	</div>
 	
-	
-	<footer>
-	<a href="/index">Main menu</a><br>
-	<a href="/liverylist">Liveries listed</a><br>
-	<a href="/userlist">Users listed</a><br>
-	<a href="/carmodellist">Car models listed</a><br>
-	<a href="/carmanufacturerlist">Car manufacturers listed</a><br>
-	<a href="/countrylist">Countries listed</a><br>
-	<a href="/registerNewUser">Register new user</a><br>
-	<br>
-	<br>
-	<form th:action="@{/logout}" method="post">
-			<input type="submit" value="Sign Out"/>
-	</form>
-	</footer>
+	<h3>Welcome to Glacier repository!</h3>
+	<p>This application lists liveries and vinyl groups in Forza games. Feel free to add any liveries or vinyl groups to the repository. Your username should match your gamertag - if you want to add additional gamertags, please let an admin know and we'll add a pseudouser for it.</p>
+	<p>Find out more:<br> <a href="http://www.varjodesigns.com">www.varjodesigns.com</a></p>
+	</div>
 	
 </body>
 </html>
