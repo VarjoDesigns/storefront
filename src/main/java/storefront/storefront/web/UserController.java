@@ -23,11 +23,11 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
-	@GetMapping("/registerNewUser")
+	@GetMapping("/register")
 	public String addNewUser(Model model) {
 		System.out.println("Register new user");
 		model.addAttribute("registerUser", new RegisterUser());
-		return "register";
+		return "/register";
 	}
 	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
