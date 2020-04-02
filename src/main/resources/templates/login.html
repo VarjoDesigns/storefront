@@ -3,29 +3,45 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <script src="https://kit.fontawesome.com/03700bab75.js" crossorigin="anonymous"></script>
     <meta title = "loginsite">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="../css/login.css" rel="stylesheet">
     <title>Kirjautumissivu</title>
   </head>
   <body>
-  		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-		<a href="/index" class="navbar-brand">
-		<img src="../glacier-03.png"  height="50" class="d-inline-block align-top" alt="">
-		</a>
-		</nav>
-  
-  		<div class="container">
-     	<div th:if="${param.error}">
-		Invalid username and password.
-		</div>
-		
-		<form th:action="@{/login}" method="post">
-		<div><label> User Name : <input type="text" name="username"/> </label></div>
-		<div><label> Password: <input type="password" name="password"/> </label></div>
-		<div><input type="submit" value="Sign In"/></div>
-		</form>
-		
-		<a href="/registerNewUser">Register new user</a>
-		</div>
+  <div class="login-page">
+ 	 <div class="modal-dialog text-center">
+         <div class="col-sm-8 login-section">
+         	<div class="modal-content">
+         		<div class="col-12 user-img">
+         			<img src="../img/vdlogos/blupic.png">
+         		</div>
+         			<form class="col-12" th:action="@{/login}" method="post">
+	         			<div class="form-group user">
+	         				<i class="fas fa-user" data-fa-transform="grow-2"></i>
+	         				<input type="text" name="username" class="form-control" placeholder="Enter username">
+	         			</div>
+	         			
+	         			<div class="form-group password">
+	         				<i class="fas fa-lock" data-fa-transform="grow-2"></i>
+	         				<input type="password" name="password" class="form-control" placeholder="Enter password">
+	         			</div>
+	         			
+	         			<div th:if="${param.error}" class="invalid-login">
+							Invalid username and password.
+						</div>
+	         			
+	         			<button type="submit" class="btn btn-outline-light"><i class="fas fa-sign-in-alt"></i>  Login</button>
+	         		</form>
+	         		<div class="col-12 register">
+	         			<button href="/register" class="btn btn-outline-light">Register</button>
+	         		</div>
+         		</div>
+         	</div>
+         </div>
+	</div>    	
 </body>
 </html>

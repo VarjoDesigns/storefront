@@ -22,21 +22,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .authorizeRequests().antMatchers("/css/**").permitAll() // Enable css when logged out
-        .and()
-        .authorizeRequests().antMatchers("/.png").permitAll() 
+        .authorizeRequests().antMatchers("/css/**", "/img/**").permitAll()
         .and()
         .authorizeRequests()
           .anyRequest().authenticated()
           .and()
       .formLogin()
       	  .loginPage("/login")  // Pakottaa käyttäjän loginsivun
-          .defaultSuccessUrl("/liverylist")
+          .defaultSuccessUrl("/index")
           .permitAll()
           .and()
       .logout()
           .permitAll();
     }
+    
     
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

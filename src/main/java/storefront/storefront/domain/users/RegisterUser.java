@@ -1,5 +1,6 @@
 package storefront.storefront.domain.users;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
@@ -8,12 +9,24 @@ import javax.validation.constraints.Size;
 public class RegisterUser {
 	
 @Size(min=5)
-private String firstName, lastName;
+private String firstName;
+
+@Size(min=5)
+private String lastName;
 
 @Size(min=5, max=30)
-private String username, password, pwdcheck;
+private String username;
 
+@Size(min=5, max=30)
+private String password;
+
+@Size(min=5, max=30)
+private String pwdcheck;
+
+@NotNull
 private String role= "USER";
+
+
 
 public String getFirstName() {
 	return firstName;

@@ -5,27 +5,38 @@
     <title>Edit livery information</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-		<a href="/index" class="navbar-brand">
-		<img src="../glacier-03.png"  height="50" class="d-inline-block align-top" alt="">
-		</a>
-		<button class="navbar-toggler"><span class="navbar-toggler-icon" data-toggle="collapse" data-target="#navbarMenu"></span></button>
-		<div class="collapse navbar-collapse" id="navbarMenu">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><a href="/liverylist" class="nav-link">Liveries</a></li>
-			<li class="nav-item"><a href="/carmanufacturerlist" class="nav-link">Manufacturers</a></li>
-			<li class="nav-item"><a href="/carmodellist" class="nav-link">Car models</a></li>
-			<li class="nav-item"><a href="/countrylist" class="nav-link">Countries</a></li>
-			<li class="nav-item"><a href="/userlist" class="nav-link">Users</a></li>
-			<li class="Nav-item">
-				<form th:action="@{/logout}" method="post">
-				<input type="submit" value="Sign Out" class="btn btn-danger">
-				</form></li>
-		</ul>
-		</div>
-	</nav>
+	<nav class="navbar navbar-expand-md navbar-light bg-light" sticky-top>
+                <div class="container-fluid">
+                <a class="navbar-brand" href="/index"><img src="../img/vdlogos/fulllogo.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="/index">Home</a>
+                        <li class="nav-item"><a href="/liverylist" class="nav-link">Liveries</a></li>
+                        <li class="nav-item"><a href="/vinylgrouplist" class="nav-link">Vinyl groups</a></li>
+                        <li class="nav-item dropdown">
+                        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                        	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        		<a class="dropdown-item" href="/carmanufacturerlist">Manufacturers</a>
+                        		<a class="dropdown-item" href="/carmodellist">Car models</a>
+                        		<a class="dropdown-item" href="/countrylist">Countries</a>
+                        		<a class="dropdown-item" href="/userlist">Users</a>
+                        	</div>
+                        </li>
+						<li class="Nav-item">
+							<form th:action="@{/logout}" method="post">
+							<input type="submit" value="Sign Out" class="btn btn-outline-danger">
+							</form>
+						</li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
 
 	<div class="container">
 		<form th:object="${editLivery}" th:action="@{/saveLivery}" action="#" method="post">

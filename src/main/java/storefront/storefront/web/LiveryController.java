@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import storefront.storefront.domain.GameRepository;
 import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.LiveryRepository;
+import storefront.storefront.domain.Vinylgroup;
+import storefront.storefront.domain.VinylgroupRepository;
 import storefront.storefront.domain.cars.Carmodel;
 import storefront.storefront.domain.cars.CarmodelRepository;
 import storefront.storefront.domain.cars.Country;
@@ -23,6 +25,8 @@ public class LiveryController {
 	// Injektoidaan repositoryt
 	@Autowired
 	private LiveryRepository repository;
+	@Autowired
+	private VinylgroupRepository vrepository;
 	@Autowired
 	private GameRepository grepository;
 	@Autowired
@@ -99,6 +103,55 @@ public class LiveryController {
 		repository.deleteById(liveryId);
 		return "redirect:../liverylist";
 	}
+
+// Vinyl groups
+
+	// List Vinylgroups
+	@RequestMapping("/vinylgrouplist")
+	public String vinylgroupList(Model model) {
+		model.addAttribute("Vinylgroups", vrepository.findAll());
+		return "vinylgrouplist";
+	}
+		
+	// Add Vinylgroup
+	@RequestMapping("/addvinylgroup")
+		public String addVinyls(Model model) {
+		model.addAttribute("newVinylgroup", new Vinylgroup()); 
+		model.addAttribute("games", grepository.findAll());
+		model.addAttribute("users", urepository.findAll());
+		
+		return "addvinylgroup";
+	}
+	
+	// Save added Vinylgroup
+		@RequestMapping(value = "/saveVinylgroup", method = RequestMethod.POST)
+		public String saveVinylgroup(Vinylgroup vinylgroup) {
+		vrepository.save(vinylgroup);
+		return "redirect:vinylgrouplist";
+		}
+	
+	// Change Vinylgroup
+		@RequestMapping(value = "/editvinylgroup/{id}", method = RequestMethod.GET)
+		public String editVinylgroup(@PathVariable("id") Long id, Model model) {
+			System.out.println("Edit vinylgroup" + id);
+			model.addAttribute("editVinylgroup", vrepository.findById(id).get());
+			model.addAttribute("games", grepository.findAll());
+			model.addAttribute("users", urepository.findAll());
+			return "editvinylgroup";
+		}
+	
+	// Delete Vinylgroup
+	@RequestMapping(value = "/deletevinylgroup/{id}", method = RequestMethod.GET)
+	public String deleteVinylgroup(@PathVariable("id") Long vinylgroupId, Model model) {
+			System.out.println("Poisto metodi" + vinylgroupId);
+			vrepository.deleteById(vinylgroupId);
+			return "redirect:../vinylgrouplist";
+		}
+	
+	
+	
+	
+	
 	
 // Carmodel
 	

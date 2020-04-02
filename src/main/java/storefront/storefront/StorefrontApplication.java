@@ -10,6 +10,8 @@ import storefront.storefront.domain.Game;
 import storefront.storefront.domain.GameRepository;
 import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.LiveryRepository;
+import storefront.storefront.domain.Vinylgroup;
+import storefront.storefront.domain.VinylgroupRepository;
 import storefront.storefront.domain.cars.Carmodel;
 import storefront.storefront.domain.cars.CarmodelRepository;
 import storefront.storefront.domain.cars.Country;
@@ -34,12 +36,13 @@ public class StorefrontApplication {
 			UserRepository urepository, 
 			CountryRepository crepository,
 			ManufacturerRepository mrepository,
-			CarmodelRepository cmrepository) {
+			CarmodelRepository cmrepository,
+			VinylgroupRepository vrepository){
 		
 	return (args) -> {
 		
 		// Ajon aikaiset demokäyttäjät
-				urepository.save(new User ("Joona", "Mellin", "Varjo Designs", "$2y$12$tRl5sXhlrNz2dMS05GjPWei5CEScNEQLlnSNBDUTGIcWJxLKb/ddK", "USER")); //Makkarasalaatti12
+				urepository.save(new User ("Varjo Designs", "$2y$12$tRl5sXhlrNz2dMS05GjPWei5CEScNEQLlnSNBDUTGIcWJxLKb/ddK", "USER")); //Makkarasalaatti12
 				urepository.save(new User ("admin", "$2y$12$vC8phhrYcaMQW1QY6AjvWuT92ThI2bWay44CMiqa5.zJUhvqD5f76", "ADMIN")); //Makkarasalaatti53
 				urepository.save(new User ("asdasd", "$2y$12$BR6qPHpeL22LhjZ3SkHrbuEFTbVktN7cQBozeZlnDPp4V6/bhsitG", "ADMIN")); //asdasd
 		
@@ -67,8 +70,9 @@ public class StorefrontApplication {
 		repository.save(new Livery("Don Joewon Song","This RWB 993 was custom created for Don Joewon Song","010600345", grepository.findByName("Forza Horizon 4").get(0), cmrepository.findByName("Rauh Welt Begriff 993").get(0), urepository.findByUsername("Varjo Designs")));
 		repository.save(new Livery("Ghiaccio","Bugatti Chiron with style - ice cold sharpie livery shared!","010400345", grepository.findByName("Forza Horizon 4").get(0), cmrepository.findByName("Chiron").get(0), urepository.findByUsername("Varjo Designs")));
 
-		
-		
+		// Vinyls testdata
+		vrepository.save(new Vinylgroup("Hero 8 Black","GoPro Camera vinyl","12334345", grepository.findByName("Forza Horizon 4").get(0), urepository.findByUsername("Varjo Designs")));
+		vrepository.save(new Vinylgroup("SuperdryJpn","Superdry Japan logo","899756443", grepository.findByName("Forza Motorsport 7").get(0), urepository.findByUsername("Varjo Designs")));
 	};
 	}
 }

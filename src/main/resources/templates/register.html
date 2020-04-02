@@ -2,38 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>registration</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <script src="https://kit.fontawesome.com/03700bab75.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="../css/login.css" rel="stylesheet">
 </head>
 <body>
-
-	<h1>Sign up as a new user!</h1>
-	<div>
-		<form th:object="${registerUser}" th:action="@{saveUser}" action="#" method="post">
+	<div class="login-page">
+ 	 <div class="modal-dialog text-center">
+         <div class="col-sm-8 login-section">
+         	<div class="modal-content">
+         		<div class="col-12 user-img">
+         			<img src="../img/vdlogos/blupic.png">
+         		</div>
+         			<form th:object="${registerUser}" th:action="@{saveUser}" action="#" method="post">
+	         			<div class="form-group">
+								<i class="fas fa-user" data-fa-transform="grow-2"></i>
+								<input id="username" type="text" th:field="*{username}" class="form-control" placeholder="Username"/>
+							</div>
+							
+							<div class="form-group">
+								<i class="fas fa-lock" data-fa-transform="grow-2"></i>
+								<input id="password" type="text" th:field="*{password}" class="form-control" placeholder="Password"/>
+							</div>
+							
+							<div class="form-group">
+								<i class="fas fa-lock" data-fa-transform="grow-2"></i>
+								<input type="text" th:field="*{pwdcheck}" class="form-control" placeholder="Confirm password"/>
+								<p th:if="${#fields.hasErrors('pwdcheck')}" th:errors="*{pwdcheck}">Password Match Error</p>
+							</div>
+							
+							<div class="form-group">
+								<p class="lead lead-modal">Please choose a role:</p>
+								<select id="roles" th:field="*{role}" class="form-control">
+									<option value="user" class="form-control">User</option>
+					 				<option value="admin" class="form-control">Administrator</option>
+								</select>
+							</div>
 		
-		<p><label for="Etunimi">First name</label>
-		<input type="text" id="firstName" th:field="*{firstName}"/></p>
-		<p><label for="Sukunimi">Last name</label>
-		<input type="text" id="lastName" th:field="*{lastName}" /></p>
-	
-		<p><label>username
-		<input type="text" th:field="*{username}"/></label>
-		<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>
-		
-		<p><label for="password">password</label> 
-		<input type="text" id="password" th:field="*{password}" /></p>
-		
-		<p><label>confirm password: 
-		<input type="text" th:field="*{pwdcheck}"/></label></p>
-		<p th:if="${#fields.hasErrors('pwdcheck')}" th:errors="*{pwdcheck}">Password Match Error</p>
-	
-		<p><label for="roles">Role</label> 
-			<select id="roles" th:field="*{role}">
-				<option value="user">user</option>
- 				<option value="admin">admin</option>
-  			</select></p>
-		
-			<p><input type="submit" value="Lisää"></p>
-		</form>
-	</div>
+							<p><input type="submit" value="Add" class="btn btn-outline-light"></p>
+						</form>
+         		</div>
+         	</div>
+         </div>
+	</div>    	
 </body>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </html>

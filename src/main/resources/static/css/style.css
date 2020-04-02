@@ -1,0 +1,161 @@
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    color: #222;
+}
+
+.navbar {
+    padding: .8rem;
+}
+
+.navbar img {
+    height:60px;
+    padding: 0;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-fade {
+    
+}
+
+.carousel-caption {
+    top: 30%;
+}
+.carousel-caption h1 {
+    font-size:500%;
+}
+
+.carousel-caption h3 {
+    font-size:200%;
+    padding-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #6648b1;
+    border: 1px solid #6648b1;
+}
+
+.btn-primary:hover {
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}
+
+.skillset img {
+    max-height: 300px;
+    max-width: 500px;
+}
+
+.padding {
+    padding-bottom: 2rem;
+}
+
+.welcome {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+.welcome hr {
+    border-top: 2px solid #b4b4b4;
+    width: 95%;
+    margin-top: .3rem;
+    margin-bottom: 1rem;
+}
+
+.about img {
+    align-content: center;
+    height: 15em;
+}
+
+.customers h2{
+    padding-top: 2em;
+}
+
+.customers img {
+    max-height:300px;
+    max-width:300px;
+}
+
+.custoemrs li {
+    text-decoration: none;
+}
+
+.fa-code {
+    color: #e54d26
+}
+.fa-bootstrap {
+    color: #563d7c;
+}
+.fa-css3 {
+    color: #2163af;
+}
+.fa-code, .fa-bootstrap, .fa-css3 {
+    font-size: 4rem;
+    margin: 1rem;
+}
+
+.fa-facebook-f {
+    color: #109bda;
+}
+.fa-twitter {
+    color: #1f7fcc;
+}
+.fa-behance {
+    color: #2b45b3;
+}
+.fa-instagram {
+    color: #4038ab;
+}
+.fa-youtube {
+    color: #6534a4;
+}
+.fa-facebook-f:hover,
+.fa-twitter:hover,
+.fa-behance:hover,
+.fa-instagram:hover,
+.fa-youtube:hover {
+    color: #d5d5d5;
+}
+
+.fixed-wrap {
+    height: 200px;
+    background-image: url(img/background.png);
+}
+
+.social a {
+    font-size: 50px;
+    padding: 2rem;
+}
+.social a :hover {
+    font-size: 60px;
+}
+
+footer {
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+    padding-top: 2rem;
+}
+
+footer img {
+    height: 100px;
+}
+
+hr.light {
+    border-top: 1px solid #d5d5d5;
+    width:75%;
+    margin-top: .8rem;
+}
