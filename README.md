@@ -16,10 +16,11 @@ REST: Features REST (Documentation not finished) <br>
 <h3>Notes: </h3><br>
 
 
-<h3>To do (FIX): </h3><br>
+<h3>To do (FIX): </h3>
 No backlog! :D
+<br>
 
-<h3>To do (ADD): </h3><br>
+<h3>To do (ADD): </h3>
 Add Bootstrap CSS for better front end (Low priority) <br>
 <ul>
   <li>New navbar with dropdowns for admin</li>
