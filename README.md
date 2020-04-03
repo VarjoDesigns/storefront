@@ -17,7 +17,11 @@ REST: Features REST (Documentation not finished) <br>
 
 
 <h3>To do (FIX): </h3>
-No backlog! :D
+<ul>
+  <li>Font-Awesome icons for Edit and Delete on list pages!</li>
+  <li></li>
+  <li></li>
+</ul>
 <br>
 
 <h3>To do (ADD): </h3>
