@@ -217,7 +217,7 @@ public class LiveryController {
 	return "redirect:carmanufacturerlist";
 	}
 	
-	// Edit manufacturer
+	// Edit manufacturer  
 	
 	@RequestMapping(value = "/editcarmanufacturer/{id}", method = RequestMethod.GET)
 	public String editCarmanufacturer(@PathVariable("id") Long manid, Model model) {
