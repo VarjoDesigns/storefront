@@ -49,13 +49,13 @@
 			<tr th:each = "carmodel : ${Carmodels}">
 			<td th:text="${carmodel.manufacturer.name}"></td>
 			<td th:text="${carmodel.name}"></td>
-			<td><a th:href="@{/deletecarmodel/{id}(id=${carmodel.id})}">Delete</a></td>
-			<td><a th:href="@{/editcarmodel/{id}(id=${carmodel.id})}">Edit</a></td>
+			<td><a th:href="@{/editcarmodel/{id}(id=${carmodel.id})}"><button class="btn btn-outline-primary">Edit</button></a></td>
+			<td><a th:href="@{/deletecarmodel/{id}(id=${carmodel.id})}"><button class="btn btn-outline-danger">Delete</button></a></td>
 			</tr>
 		</tbody>
 	</table>
 	<p>
-	<a href="/addcarmodel">Add a new model</a>
+	<a href="/addcarmodel"><button class="btn btn-outline-primary">Add a new model</button></a>
 	</p>
 	
 	</div>

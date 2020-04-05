@@ -22,7 +22,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .authorizeRequests().antMatchers("/css/**", "/img/**","/register**").permitAll()
+        .authorizeRequests()
+        .antMatchers("/css/**", "/img/**","/register**","/saveUser**").permitAll()
+        .and()
+        .authorizeRequests().antMatchers(
+        		"/delete/**", 
+        		"/editlivery/**",
+        		"/editvinylgroup/**",
+        		"/editlivery/**",
+        		"/carmodellist/**",
+        		"/addcarmodel/**",
+        		"/saveCarmodel/**",
+        		"/editcarmodel/**",
+        		"/deletecarmodel/**",
+        		"/carmanufacturerlist/**",
+        		"/addcarmanufacturer/**",
+        		"/saveCarmanufacturer/**",
+        		"/editcarmanufacturer/**",
+        		"/deletecarmanufacturer/**",
+        		"/countrylist/**",
+        		"/addcountry/**",
+        		"/savecountry/**",
+        		"/editcountry/**",
+        		"/deletecountry/**",
+        		"/userlist/**",
+        		"/edituser/**",
+        		"/deleteuser/**",
+        		"/deletevinylgroup/**")
+        .hasAuthority("ADMIN") 
         .and()
         .authorizeRequests()
           .anyRequest().authenticated()
@@ -35,7 +62,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       .logout()
           .permitAll();
     }
-    
     
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

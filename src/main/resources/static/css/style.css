@@ -95,41 +95,17 @@ html, body {
     text-decoration: none;
 }
 
-.fa-code {
-    color: #e54d26
+.fa-edit, .fa-trash-alt {
+	left: 10px;
+	margin-top: 11px;
+	font-size: 18px;
+	color: #555e60;
 }
-.fa-bootstrap {
-    color: #563d7c;
+.fa-edit:hover {
+	color: #007bff;
 }
-.fa-css3 {
-    color: #2163af;
-}
-.fa-code, .fa-bootstrap, .fa-css3 {
-    font-size: 4rem;
-    margin: 1rem;
-}
-
-.fa-facebook-f {
-    color: #109bda;
-}
-.fa-twitter {
-    color: #1f7fcc;
-}
-.fa-behance {
-    color: #2b45b3;
-}
-.fa-instagram {
-    color: #4038ab;
-}
-.fa-youtube {
-    color: #6534a4;
-}
-.fa-facebook-f:hover,
-.fa-twitter:hover,
-.fa-behance:hover,
-.fa-instagram:hover,
-.fa-youtube:hover {
-    color: #d5d5d5;
+.fa-trash-alt:hover {
+	color: #dc3545;
 }
 
 .fixed-wrap {

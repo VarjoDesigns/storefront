@@ -25,13 +25,14 @@
 							
 							<div class="form-group">
 								<i class="fas fa-lock" data-fa-transform="grow-2"></i>
-								<input id="password" type="text" th:field="*{password}" class="form-control" placeholder="Password"/>
+								<input id="password" type="password" th:field="*{password}" class="form-control" placeholder="Password"/>
 							</div>
 							
 							<div class="form-group">
 								<i class="fas fa-lock" data-fa-transform="grow-2"></i>
-								<input type="text" th:field="*{pwdcheck}" class="form-control" placeholder="Confirm password"/>
-								<p th:if="${#fields.hasErrors('pwdcheck')}" th:errors="*{pwdcheck}">Password Match Error</p>
+								<input type="password" th:field="*{pwdcheck}" class="form-control" placeholder="Confirm password"/>
+								<br>
+								<p th:if="${#fields.hasErrors('pwdcheck')}" th:errors="*{pwdcheck}" class="lead lead-modal">Password Match Error</p>
 							</div>
 							
 							<div class="form-group">

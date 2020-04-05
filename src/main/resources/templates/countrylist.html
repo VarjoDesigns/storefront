@@ -46,13 +46,15 @@
 			<th th:text = "Delete"></th>
 			<tr th:each = "country : ${countries}">
 			<td th:text="${country.name}"></td>
-			<td><a th:href="@{/deletecountry/{id}(id=${country.id})}">Delete</a></td>
-			<td><a th:href="@{/editcountry/{id}(id=${country.id})}">Edit</a></td>
+			
+			<td><a th:href="@{/editcountry/{id}(id=${country.id})}"><button class="btn btn-outline-primary">Edit</button></a></td>
+			<td><a th:href="@{/deletecountry/{id}(id=${country.id})}"><button class="btn btn-outline-danger">Delete</button></a></td>
+			
 			</tr>
 		</tbody>
 	</table>
 	<p>
-	<a href="/addcountry">Add new country</a>
+	<a href="/addcountry"><button class="btn btn-outline-primary">Add a new country</button></a>
 	</p>
 	</div>
 	

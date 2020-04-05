@@ -49,14 +49,14 @@
 			<td th:text="${user.username}"></td>
 			<td th:text="${user.role}"></td>
 			
-			<td><a th:href="@{/edituser/{id}(id=${user.id})}">Edit</a></td>
-			<td><a th:href="@{/deleteuser/{id}(id=${user.id})}">Delete</a></td>
+			<td><a th:href="@{/edituser/{id}(id=${user.id})}"><button class="btn btn-outline-primary">Edit</button></a></td>
+			<td><a th:href="@{/deleteuser/{id}(id=${user.id})}"><button class="btn btn-outline-danger">Delete</button></a></td>
 			
 			</tr>
 		</tbody>
 	</table>
 	<p>
-	<a href="/register">Add new user</a>
+	<a href="/register"><button class="btn btn-outline-primary">Add a new user</button></a>
 	</p>
 	</div>
 	

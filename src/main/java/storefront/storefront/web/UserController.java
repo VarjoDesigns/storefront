@@ -47,10 +47,12 @@ public class UserController {
 					userRepository.save(newUser);
 				} else {
 					bindingResult.rejectValue("username", "err.username", "Username already exists");
+					System.out.println("Username already exists");
 					return "register";
 				}
 			} else {
-				bindingResult.rejectValue("passwordCheck", "err.passCheck", "Password does not match");
+				bindingResult.rejectValue("pwdcheck", "err.passCheck", "Password does not match");
+				System.out.println("Password does not match");
 				return "register";
 			}
 		} else {
