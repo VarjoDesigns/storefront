@@ -44,7 +44,11 @@ Switch to MariaDB (High priority, but easier to test previous steps if on H2) <b
 
 
 <h3> Classes </h3>
-Games<br>
 Liveries<br>
-Users<br>
 Vinylgroups<br>
+Games<br>
+Car models<br>
+Car Manufacturers<br>
+Countries<br>
+Users<br>
+Profiles?<br>
