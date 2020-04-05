@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-public class Manufacturer {
+public class Manufacturer{
 	@Id
 	@NotNull
 	@GeneratedValue(strategy=GenerationType.AUTO)

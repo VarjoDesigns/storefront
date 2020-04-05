@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import storefront.storefront.domain.Livery;
 import storefront.storefront.domain.users.RegisterUser;
 import storefront.storefront.domain.users.User;
 import storefront.storefront.domain.users.UserRepository;

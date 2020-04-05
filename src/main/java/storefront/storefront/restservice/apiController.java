@@ -1,7 +1,6 @@
 package storefront.storefront.restservice;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import storefront.storefront.domain.Game;
 import storefront.storefront.domain.GameRepository;
 import storefront.storefront.domain.Livery;
@@ -9,7 +8,6 @@ import storefront.storefront.domain.LiveryRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 

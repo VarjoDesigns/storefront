@@ -29,7 +29,6 @@ public class Livery {
 	// Model & manufacturer
 	// Year
 	// Category
-	// Game
 	
 	@ManyToOne	// Yhdessä maassa voi olla useita valmistajia
 	@JsonIgnore
