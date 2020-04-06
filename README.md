@@ -30,6 +30,8 @@ Add Bootstrap CSS for better front end (Low priority) <br>
   <li>Sticky footer! With at least social icons, github link etc.</li>
   <li>Custom fonts for the UI, maybe Monsterrat?</li>
   <li>New Glacier Repository logo in the same style as Varjo Designs 2020 logo</li>
+  <li>Single livery & Single Vinylgroup pages?</li>
+  <li></li>
 </ul>
 List pages:
 <ul>
