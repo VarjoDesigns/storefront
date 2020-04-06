@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-
 import storefront.storefront.domain.Game;
 import storefront.storefront.domain.GameRepository;
 import storefront.storefront.domain.Livery;
@@ -23,6 +22,7 @@ import storefront.storefront.domain.users.UserRepository;
 
 
 @SpringBootApplication
+//@ComponentScan({"localhost:8080","controller"}) // File upload
 public class StorefrontApplication {
 
 	public static void main(String[] args) {

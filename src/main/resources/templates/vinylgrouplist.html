@@ -50,7 +50,6 @@
 			<th>Game</th>
 			<th>Creator</th>
 			<th sec:authorize="hasAuthority('ADMIN')"></th>
-			<th sec:authorize="hasAuthority('ADMIN')"></th>
 			
 			<tr th:each = "vinylgroup : ${Vinylgroups}">
 			<td th:text="${vinylgroup.name}"></td>
@@ -58,9 +57,10 @@
 			<td th:text="${vinylgroup.sharecode}"></td>
 			<td th:text="${vinylgroup.game.name}"></td>
 			<td th:text="${vinylgroup.user.username}"></td>
-			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editvinylgroup/{id}(id=${vinylgroup.id})}"><i class="fas fa-edit" data-fa-transform="grow-2"></i></a></td>
-			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deletevinylgroup/{id}(id=${vinylgroup.id})}"><i class="fas fa-trash-alt" data-fa-transform="grow-2"></i></a></td>
-			
+			<td sec:authorize="hasAuthority('ADMIN')">
+				<a th:href="@{/editvinylgroup/{id}(id=${vinylgroup.id})}"><i class="fas fa-edit" data-fa-transform="grow-2"></i></a>
+				<a th:href="@{/deletevinylgroup/{id}(id=${vinylgroup.id})}"><i class="fas fa-trash-alt" data-fa-transform="grow-2"></i></a>
+				</td>
 			</tr>
 		</tbody>
 	</table>

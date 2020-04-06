@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xlmns:sec="http://www.thymeleaf.org/thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-	
 	<title>Liverylist</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
@@ -44,37 +43,22 @@
 	<div class="container">
 	
 	
-	<h1 class="page-header">Liverylist</h1>
+	<h1 class="page-header">Filelist</h1>
 	<table class="table table-striped table-responsive">
 		<tbody>
-			<th>Livery</th>
-			<th>Description</th>
-			<th>Sharecode</th>
-			<th>Manufacturer</th>
-			<th>Model</th>
-			<th>Country</th>
-			<th>Game</th>
-			<th>Creator</th>
-			<th sec:authorize="hasAuthority('ADMIN')"> </th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Donwload</th>
 			
-			<tr th:each = "livery : ${Liveries}">
-			<td th:text="${livery.name}"></td>
-			<td th:text="${livery.description}"></td>
-			<td th:text="${livery.sharecode}"></td>
-			<td th:text="${livery.carmodel.manufacturer.name}"></td>
-			<td th:text="${livery.carmodel.name}"></td>
-			<td th:text="${livery.carmodel.manufacturer.country.name}"></td>
-			<td th:text="${livery.game.name}"></td>
-			<td th:text="${livery.user.username}"></td>
-			
-			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editlivery/{id}(id=${livery.id})}"><i class="fas fa-edit" data-fa-transform="grow-2"></i></a><a th:href="@{/delete/{id}(id=${livery.id})}"><i class="fas fa-trash-alt" data-fa-transform="grow-2"></i></a></td>
-			
-			
+			<tr th:each = "file : ${files}">
+			<td th:text="${file.fileName}"></td>
+			<td th:text="${file.mimeType}"></td>
+			<td><a th:href="@{/file/{id}(id=${file.id})}" class="btn btn-outline-primary">Download</a></td>
 			</tr>
 		</tbody>
 	</table>
 	<p>
-	<a href="/addlivery"><button class="btn btn-outline-primary">Add new livery</button></a>
+	<a href="/fileupload"><button class="btn btn-outline-primary">Add new files</button></a>
 	</p>
 	</div>
 </body>
