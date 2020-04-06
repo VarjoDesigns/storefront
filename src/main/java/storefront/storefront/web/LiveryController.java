@@ -71,7 +71,6 @@ public class LiveryController {
 		model.addAttribute("newLivery", new Livery()); // Luo uuden tyhjän Livery olion, joka lähetetään addlivery.html
 		model.addAttribute("games", grepository.findAll()); // hakee kaikki GameRepositoryn tiedot, ja lähettää ne lomakkeelle
 		model.addAttribute("carmodels", cmrepository.findAll());
-		model.addAttribute("manufacturers", mrepository.findAll());
 		model.addAttribute("users", urepository.findAll());
 		
 		return "addlivery";

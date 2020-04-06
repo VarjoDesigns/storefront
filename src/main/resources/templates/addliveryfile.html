@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add livery</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-md navbar-light bg-light" sticky-top>
+                <div class="container-fluid">
+                <a class="navbar-brand" href="/index"><img src="../img/vdlogos/fulllogo.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="/index">Home</a>
+                        <li class="nav-item"><a href="/liverylist" class="nav-link">Liveries</a></li>
+                        <li class="nav-item"><a href="/vinylgrouplist" class="nav-link">Vinyl groups</a></li>
+                        <li class="nav-item dropdown">
+                        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                        	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        		<a class="dropdown-item" href="/carmanufacturerlist">Manufacturers</a>
+                        		<a class="dropdown-item" href="/carmodellist">Car models</a>
+                        		<a class="dropdown-item" href="/countrylist">Countries</a>
+                        		<a class="dropdown-item" href="/userlist">Users</a>
+                        	</div>
+                        </li>
+						<li class="Nav-item">
+							<form th:action="@{/logout}" method="post">
+							<input type="submit" value="Sign Out" class="btn btn-outline-danger">
+							</form>
+						</li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+	
+	
+	
+	<div class="container">
+	<h1 class="page-header">Add liveries with files</h1>
+	<div>
+	<form action="#" th:action="@{saveliveryfile}" method="post" th:object="${newLiveryfile}">
+	
+		<div class="form-group">
+			<label for ="name">Name</label>
+			<input id="name" type="text" th:field="*{name}" class="form-control" placeholder="E.g. 'Cookie monster'"/>
+			<small class="form-text text-muted">Please add the accurate file name!</small>
+		</div>
+		
+		<div class="form-group">
+		<label for ="name">Description</label>
+		<input type="text" id="description" th:field="*{description}" class="form-control"/>
+		</div>
+		
+		<div class="form-group">
+		<label for ="name">Share code</label>
+		<input type="text" id="sharecode" th:field="*{sharecode}" class="form-control"/>
+		<small class="form-text text-muted">You can find the sharecode from storefront. Go to the file and press RS for "Request sharecode"</small>
+		</div>
+		
+		<div class="form-group">
+			<input type="file" name="file"/><br/>
+		</div>	
+		
+	<input type="submit" value="Save" class="btn btn-outline-primary"></input>
+	</form>
+	</div>
+
+</div>
+</body>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>
